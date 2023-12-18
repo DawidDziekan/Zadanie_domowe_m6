@@ -17,7 +17,7 @@ ARCHIVES_EXTENSIONS = ['ZIP', 'GZ', 'TAR']
 
 all_existing_extentions = set()
 
-unrecognize_extensions = set()
+unrecognized_extensions = set()
 
 def normalize(some_string):  
     result = ""
@@ -89,7 +89,7 @@ def process_folder(folder_path):
                 all_existing_extentions.add(extension)
                 archive_folder_and_move(root, file, "archiwa")
             else:
-                unrecognize_extensions.add(extension)
+                unrecognized_extensions.add(extension)
                 continue
                 
         for dir in dirs:
@@ -100,7 +100,7 @@ def process_folder(folder_path):
             else:
                 os.rename(dir_path ,new_dir_path)
     print(all_existing_extentions)
-    print(unrecognize_extensions)
+    print(unrecognized_extensions)
 
 if __name__ == "__main__":
 
